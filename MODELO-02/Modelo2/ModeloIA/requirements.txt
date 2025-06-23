@@ -1,0 +1,50 @@
+# Dependencias para el sistema DQN de conducción autónoma
+# ProyectoIAUE - TF_APR_ConduccionAut
+
+# Frameworks de Deep Learning
+torch>=1.12.0
+torchvision>=0.13.0
+torchaudio>=0.12.0
+
+# Para exportar modelos a ONNX (Unreal Engine)
+onnx>=1.12.0
+onnxruntime>=1.12.0
+
+# Procesamiento numérico
+numpy>=1.21.0
+scipy>=1.8.0
+
+# Visualización y análisis
+matplotlib>=3.5.0
+seaborn>=0.11.0
+pandas>=1.4.0
+plotly>=5.9.0
+
+# Redes neuronales y ML
+scikit-learn>=1.1.0
+
+# Comunicación y networking
+requests>=2.28.0
+
+# Formato de datos
+json5>=0.9.0
+
+# Logging y utilidades
+tqdm>=4.64.0
+colorama>=0.4.4
+
+# Exportación de modelos
+onnx>=1.12.0
+onnxruntime>=1.12.0
+
+# Para entornos de RL (opcional)
+gymnasium>=0.26.0
+stable-baselines3>=1.6.0
+
+# Procesamiento de imágenes (si se necesita)
+Pillow>=9.0.0
+opencv-python>=4.6.0
+
+# Utilidades adicionales
+psutil>=5.9.0
+memory-profiler>=0.60.0

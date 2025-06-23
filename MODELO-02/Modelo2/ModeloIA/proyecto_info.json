@@ -1,0 +1,176 @@
+{
+  "proyecto": {
+    "nombre": "ProyectoIAUE - Conducción Autónoma DQN",
+    "version": "2.0.0",
+    "descripcion": "Sistema de conducción autónoma mediante DQN Learning en entorno simulado 3D",
+    "fecha_creacion": "2025-06-22"
+  },
+  
+  "modelos": {
+    "modelo_1": {
+      "nombre": "Q-Learning Clásico",
+      "tipo": "q_table",
+      "archivo_entrenamiento": "entrenar_agente_q_table_complejo.py",
+      "archivo_servidor": "agente_q_table_tcp.py",
+      "descripcion": "Modelo base con tabla Q tradicional",
+      "estados": 3000,
+      "acciones": 4,
+      "sensores": "Básicos (4 raycast)"
+    },
+    "modelo_2": {
+      "nombre": "DQN Learning Avanzado",
+      "tipo": "deep_q_network",
+      "archivo_entrenamiento": "dqn_agente_avanzado.py",
+      "archivo_servidor": "dqn_server_tcp.py",
+      "descripcion": "Modelo avanzado con redes neuronales profundas",
+      "input_size": 84,
+      "acciones": 5,
+      "sensores": "80+ raycast omnidireccional",
+      "features": [
+        "Experience Replay",
+        "Target Network",
+        "NPCs integrados",
+        "Sistema de recompensas multinivel"
+      ]
+    }
+  },
+  
+  "arquitectura_dqn": {
+    "red_neuronal": {
+      "input_layer": 84,
+      "hidden_layers": [512, 256, 128, 64],
+      "output_layer": 5,
+      "activacion": "ReLU",
+      "dropout": 0.2,
+      "batch_norm": true
+    },
+    "hiperparametros": {
+      "learning_rate": 0.0001,
+      "gamma": 0.99,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.01,
+      "epsilon_decay": 0.995,
+      "memory_size": 100000,
+      "batch_size": 64,
+      "target_update": 1000
+    },
+    "entrenamiento": {
+      "max_episodes": 5000,
+      "max_steps_per_episode": 2000,
+      "min_memory_size": 10000
+    }
+  },
+  
+  "entorno_simulacion": {
+    "motor": "Unreal Engine 4.27",
+    "agente_vehiculo": "AgenteRL",
+    "sistema_sensores": {
+      "raycast_count": 80,
+      "sensor_range": 1500,
+      "deteccion_360": true,
+      "frecuencia_actualizacion": "60fps"
+    },
+    "npcs": {
+      "tipos": ["Camion", "AutoRojo", "AutoAzul"],
+      "comportamiento": "Navegación por checkpoints",
+      "respawn": "Automático"
+    }
+  },
+  
+  "sistema_recompensas": {
+    "positivas": {
+      "meta_alcanzada": 100.0,
+      "velocidad_optima": 0.5,
+      "distancia_segura": 0.2,
+      "supervivencia": 0.1
+    },
+    "negativas": {
+      "colision_camion": -100.0,
+      "colision_auto": -50.0,
+      "colision_pared": -10.0,
+      "velocidad_excesiva": -0.3,
+      "proximidad_peligrosa": -2.0
+    }
+  },
+  
+  "comunicacion": {
+    "protocolo": "TCP",
+    "host": "127.0.0.1",
+    "puerto": 9999,
+    "formato_datos": "JSON",
+    "timeout": 30,
+    "encoding": "utf-8"
+  },
+  
+  "metricas_evaluacion": {
+    "rendimiento": [
+      "avg_reward",
+      "success_rate", 
+      "avg_steps",
+      "max_reward"
+    ],
+    "seguridad": [
+      "total_collisions",
+      "collisions_per_episode",
+      "fatal_collisions",
+      "survival_time"
+    ],
+    "comportamiento": [
+      "action_diversity",
+      "reward_stability",
+      "episode_consistency"
+    ]
+  },
+  
+  "archivos_generados": {
+    "modelos": [
+      "q_table_agenteRL.npy",
+      "dqn_agente_final.pth",
+      "dqn_agente_conduccion.onnx"
+    ],
+    "reportes": [
+      "dqn_evaluation_report.txt",
+      "dqn_performance_analysis.png",
+      "dqn_training_metrics.png"
+    ],
+    "logs": [
+      "q_learning_server.log",
+      "dqn_server.log"
+    ]
+  },
+  
+  "instrucciones_uso": {
+    "instalacion": [
+      "1. Ejecutar instalar.bat (Windows) o instalar.sh (Linux/Mac)",
+      "2. Activar entorno virtual: venv_dqn\\Scripts\\activate",
+      "3. Verificar instalación con: python -c 'import torch; print(torch.__version__)'"
+    ],
+    "entrenamiento": [
+      "Modelo 1: python entrenar_agente_q_table_complejo.py",
+      "Modelo 2: python dqn_agente_avanzado.py"
+    ],
+    "ejecucion": [
+      "1. Iniciar servidor: python dqn_server_tcp.py",
+      "2. Abrir Unreal Engine: TF_APR_ConduccionAut.uproject", 
+      "3. Compilar proyecto y ejecutar nivel",
+      "4. El agente se controlará automáticamente"
+    ],
+    "evaluacion": [
+      "python dqn_evaluator.py - Análisis completo de rendimiento",
+      "python dqn_utils.py - Herramientas de debugging"
+    ]
+  },
+  
+  "solucion_problemas": {
+    "error_torch": "pip install torch>=1.12.0 --index-url https://download.pytorch.org/whl/cpu",
+    "error_onnx": "pip install onnx onnxruntime",
+    "error_tcp": "Verificar que puerto 9999 esté libre: netstat -an | findstr 9999",
+    "error_compilacion_ue4": "Regenerar archivos: Right-click .uproject → Generate VS project files"
+  },
+  
+  "contacto_soporte": {
+    "documentacion": "README.md",
+    "issues": "GitHub Issues",
+    "discord": "Servidor del Proyecto"
+  }
+}
