@@ -27,12 +27,12 @@ Este proyecto implementa un **sistema completo de conducción autónoma** utiliz
 ## � Demostración del Sistema
 
 ### 📹 Video de Funcionamiento
-![Video Demo](Modelo2/recursos/ExplicaciónUEAPR.mp4)
+![Video Demo](modelo2/recursos/video_demo.mp4)
 
 *Video demostrativo del sistema de conducción autónoma en acción, mostrando la navegación inteligente y evasión de obstáculos.*
 
 ### 📊 Diagrama de Arquitectura
-![Diagrama de Arquitectura](Modelo2/recursos/DiagramaFuncional.png)
+![Diagrama de Arquitectura](modelo2/recursos/diagrama_arquitectura.png)
 
 *Diagrama completo de la arquitectura del sistema, mostrando la interconexión entre Unreal Engine y el sistema de IA.*
 
@@ -413,6 +413,7 @@ print(os.path.exists("conducionModel.onnx"))
 
 # Regenerar modelo si es necesario
 python dqn_agente_avanzado.py
+```
 ---
 
 ## 📈 Resultados y Logros
