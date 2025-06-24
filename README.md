@@ -413,13 +413,6 @@ print(os.path.exists("conducionModel.onnx"))
 
 # Regenerar modelo si es necesario
 python dqn_agente_avanzado.py
-```
-
-### 📞 Soporte
-- 📧 **Email**: soporte@proyectoiaue.com
-- 💬 **Discord**: [Servidor del Proyecto]
-- 🐛 **Issues**: [GitHub Issues](https://github.com/usuario/ProyectoIAUE/issues)
-
 ---
 
 ## 📈 Resultados y Logros
